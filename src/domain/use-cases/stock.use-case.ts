@@ -4,9 +4,9 @@ import { StockModel } from '../models/stock.model';
 import { IGenericRepository } from '../repositories/generic.repository';
 
 export class StockUseCase implements UseCase<StockModel, StockModel> {
-  constructor(private repository: IGenericRepository<StockModel>) {}
+  constructor(private readonly repository: IGenericRepository<StockModel>) {}
 
-  execute(data: StockModel): Observable<StockModel> {
+  create(data: StockModel): Observable<StockModel> {
     return this.repository.create(data);
   }
 
