@@ -11,6 +11,7 @@ import { Injectable } from '@angular/core';
 export class StockImplementationRepository extends IGenericRepository<StockModel> {
   stockMapper = new StockRepositoryMapper();
   private STOCK_API_URL = environment.V1_BASE_URL + '/stock';
+
   constructor(private http: HttpClient) {
     super();
   }

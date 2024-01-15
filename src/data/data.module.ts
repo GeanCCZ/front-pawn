@@ -3,9 +3,11 @@ import { IGenericRepository } from '../domain/repositories/generic.repository';
 import { StockUseCase } from '../domain/use-cases/stock.use-case';
 import { StockModel } from '../domain/models';
 import { StockImplementationRepository } from './repositories/implementation/stock-implementation.repository';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
 
 const StockUseCaseFactory = (reposotory: IGenericRepository<StockModel>) =>
-  new StockUseCase(reposotory);
+  new StockUseCase();
 
 const StockUseCaseProvider = {
   provide: StockUseCase,
@@ -18,5 +20,6 @@ const StockUseCaseProvider = {
     StockUseCaseProvider,
     { provide: IGenericRepository, useClass: StockImplementationRepository },
   ],
+  imports: [CommonModule, HttpClientModule],
 })
 export class DataModule {}
