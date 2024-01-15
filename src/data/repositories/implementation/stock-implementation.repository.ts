@@ -9,10 +9,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class StockImplementationRepository extends IGenericRepository<StockModel> {
-  stockMapper = new StockRepositoryMapper();
   private STOCK_API_URL = environment.V1_BASE_URL + '/stock';
-
-  constructor(private http: HttpClient) {
+  constructor(
+    private readonly http: HttpClient,
+    private readonly stockMapper: StockRepositoryMapper
+  ) {
     super();
   }
 

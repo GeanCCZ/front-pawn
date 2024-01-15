@@ -6,8 +6,8 @@ import { StockImplementationRepository } from './repositories/implementation/sto
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 
-const StockUseCaseFactory = (reposotory: IGenericRepository<StockModel>) =>
-  new StockUseCase();
+const StockUseCaseFactory = (repository: IGenericRepository<StockModel>) =>
+  new StockUseCase(repository);
 
 const StockUseCaseProvider = {
   provide: StockUseCase,
@@ -18,7 +18,10 @@ const StockUseCaseProvider = {
 @NgModule({
   providers: [
     StockUseCaseProvider,
-    { provide: IGenericRepository, useClass: StockImplementationRepository },
+    {
+      provide: IGenericRepository<StockModel>,
+      useClass: StockImplementationRepository,
+    },
   ],
   imports: [CommonModule, HttpClientModule],
 })

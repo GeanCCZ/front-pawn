@@ -4,7 +4,7 @@ import { IGenericRepository } from '../repositories/generic.repository';
 import { StockImplementationRepository } from '../../data/repositories/implementation/stock-implementation.repository';
 
 export class StockUseCase implements IGenericRepository<StockModel> {
-  constructor(private repository: StockImplementationRepository) {}
+  constructor(private repository: IGenericRepository<StockModel>) {}
 
   create(data: StockModel): Observable<StockModel> {
     return this.repository.create(data);
