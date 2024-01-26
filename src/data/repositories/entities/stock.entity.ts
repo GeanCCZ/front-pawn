@@ -1,14 +1,14 @@
 export class StockEntity {
-  id!: string;
-  created_at!: string;
-  updated_at!: string;
-  token!: string;
-  title!: string;
-  company!: string;
-  sector!: string;
-  position!: number;
-  quantity!: number;
-  actual_price!: number;
-  avg_price!: number;
-  profit!: number;
+  ID!: string;
+  Created_at!: string;
+  Updated_at!: string;
+  Token!: string;
+  Title!: string;
+  Company!: string;
+  Sector!: string;
+  Position!: number;
+  Quantity!: number;
+  Actual_price!: number;
+  Avg_price!: number;
+  Profit!: number;
 }

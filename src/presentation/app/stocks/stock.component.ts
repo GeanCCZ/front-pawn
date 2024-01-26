@@ -1,17 +1,23 @@
 import { Component, Input } from '@angular/core';
-import { StockRequest } from '../../../data/requests/stocks.request';
+import { IGenericRepository } from '../../../domain/repositories/generic.repository';
+import { StockModel } from '../../../domain/models';
 
 @Component({
   selector: 'app-stock',
   templateUrl: './stock.component.html',
+  //styleUrls: ['./stock.component.css'],
 })
 export class StockComponent {
-  @Input()
-  stock?: StockRequest;
+  stocks: Array<StockModel> = [];
+  constructor(private stockInteractor: IGenericRepository<StockModel>) {}
 
   ngOnInit(): void {
-    if (this.stock && this.stock.id && this.stock.id.length > 0) {
-      const stock = this.stock;
-    }
+    this.getStocks();
+  }
+  getStocks(): any {
+    const stocks = this.stockInteractor.findAll().subscribe((data) => {
+      return data;
+    });
+    console.log(stocks, 'stocks');
   }
 }

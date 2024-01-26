@@ -10,7 +10,7 @@ export class StockUseCase implements IGenericRepository<StockModel> {
     return this.repository.create(data);
   }
 
-  findAll(): Observable<StockModel[]> {
+  findAll(): Observable<StockModel> {
     return this.repository.findAll();
   }
 
