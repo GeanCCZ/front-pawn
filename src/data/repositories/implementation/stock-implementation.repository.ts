@@ -5,7 +5,7 @@ import { StockRepositoryMapper } from '../mappers/stock-repository.mapper';
 import { environment } from '../../../environments/environment.development';
 import { flatMap, map } from 'rxjs';
 import { Injectable } from '@angular/core';
-import { StockEntity } from '../entities';
+import { ResponseStockEntity, StockEntity } from '../entities';
 @Injectable({
   providedIn: 'root',
 })
@@ -23,14 +23,30 @@ export class StockImplementationRepository extends IGenericRepository<StockModel
   }
 
   findAll() {
-    const stocks = this.http.get<any>(this.STOCK_API_URL + '/list').pipe(
-      map((res) => {
-        return res.data.map((data: StockEntity) => {
-          return this.stockMapper.mapFrom(data);
-        });
-      })
-    );
+    const stocks = this.http
+      .get<ResponseStockEntity>(this.STOCK_API_URL + '/list')
+      .pipe(
+        map((res) => {
+          return res.data.map((data: StockEntity) => {
+            return this.stockMapper.mapFrom(data);
+          });
+        })
+      );
 
+    //   .pipe(
+    //   map((res) => {
+    //     console.log(
+    //       res.data.map((data: StockEntity) => {
+    //         return this.stockMapper.mapFrom(data);
+    //       }),
+    //       'res'
+    //     );
+    //     return res.data.map((data: StockEntity) => {
+    //       return this.stockMapper.mapFrom(data);
+    //     });
+    //   })
+    // );
+    console.log(stocks, 'stoocks');
     return stocks;
   }
 

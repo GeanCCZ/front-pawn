@@ -1,0 +1,68 @@
+.nav-bar {
+  background-image: linear-gradient(
+    to right,
+    #005f59,
+    #000415,
+    #000415,
+    #553250
+  );
+  color: #fff;
+
+  border-radius: 1vh;
+  display: flex;
+  justify-content: center;
+}
+
+.main-icon {
+  width: 5.5vh;
+  max-width: 10vh;
+}
+
+.container {
+  background-image: linear-gradient(#000415, #004855, #000415);
+}
+
+.body {
+  height: 100vh;
+  width: 100%;
+
+  display: flex;
+
+  flex-direction: row;
+}
+
+.options-bar {
+  color: white;
+  width: 8vh;
+  height: 98vh;
+  border-radius: 1vh;
+  margin: 20vh 0vh 1vh 1vh;
+  align-items: center;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 1vh;
+}
+
+.option {
+  width: 100%;
+  height: 10vh;
+  border-radius: 1vh;
+  justify-content: center;
+  align-items: center;
+  border: black solid 0.1vh;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 1vh;
+}
+
+.option-icon {
+  width: 5vh;
+  max-width: 10vh;
+}
+
+.page-content {
+}

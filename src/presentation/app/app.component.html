@@ -1,4 +1,18 @@
-<div>
-  <h1>Inicial</h1>
+<div class="container">
+  <div class="nav-bar">
+    <img class="main-icon" src="../../assets/icons/main-pawn-icon.png" />
+  </div>
+  <body class="body">
+    <div class="options-bar">
+      <div
+        class="option"
+        *ngFor="let option of options"
+        routerLink="{{ option.path }}"
+      >
+        <img class="option-icon" src="{{ option.icon }}" />
+        <div>{{ option.name }}</div>
+      </div>
+    </div>
+    <router-outlet class="page-content"></router-outlet>
+  </body>
 </div>
-<router-outlet></router-outlet>

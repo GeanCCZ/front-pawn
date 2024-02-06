@@ -1,16 +1,32 @@
-<div>
-  <h1>Stocks</h1>
-</div>
 <div class="row">
-  <div class="column">
-    <table>
-      <thead>
-        <tr>
-          <th>Title</th>
-        </tr>
-      </thead>
-
-      <h6>{{ stocks[0].title }}</h6>
-    </table>
+  <h1 class="wallet-title">Welcome</h1>
+  <h2 class="wallet-subtitle">{{ user }}</h2>
+  <div class="main-content">
+    <div class="stocks-wallet">
+      <table>
+        <div class="fields">
+          <thead>
+            <tr *ngFor="let field of fields">
+              <th [ngClass]="'field-' + field.name">{{ field.name }}</th>
+            </tr>
+          </thead>
+        </div>
+        <div class="attributes">
+          <tbody>
+            <tr *ngFor="let stock of stocks">
+              <td class="title">{{ stock.title }}</td>
+              <td class="token">{{ stock.token }}</td>
+              <td class="company">{{ stock.company }}</td>
+              <td class="sector">{{ stock.sector }}</td>
+              <td class="quantity">{{ stock.quantity }}</td>
+              <td class="actual_price">{{ stock.actual_price }}</td>
+              <td class="avg_price">{{ stock.avg_price }}</td>
+              <td class="position">{{ stock.position }}</td>
+            </tr>
+          </tbody>
+        </div>
+      </table>
+    </div>
+    <div class="percentage">aaa</div>
   </div>
 </div>

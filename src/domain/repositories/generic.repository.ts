@@ -3,7 +3,7 @@ import { Observable } from 'rxjs';
 export abstract class IGenericRepository<T> {
   abstract create(data: T): Observable<T>;
 
-  abstract findAll(): Observable<T>;
+  abstract findAll(): Observable<T[]>;
 
   abstract findOne(id: string): Observable<T>;
 

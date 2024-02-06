@@ -12,3 +12,8 @@ export class StockEntity {
   Avg_price!: number;
   Profit!: number;
 }
+
+export class ResponseStockEntity {
+  data!: [StockEntity];
+  message!: string;
+}
